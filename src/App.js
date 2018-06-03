@@ -5,26 +5,15 @@ import './App.css';
 import Bar from './components/Bar';
 import Pie from './components/Pie';
 import Line from './components/Line';
+import Header from './components/Header';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header/>
         <Router>
           <div>
-            <ul>
-              <li>
-                <Link to="/bar">Bar</Link>
-              </li>
-              <li>
-                <Link to="/line">Line</Link>
-              </li>
-              <li>
-                <Link to="/pie">Pie</Link>
-              </li>
-            </ul>
-            <hr/>
-
             <Route exact path="/" component={Bar}/>
             <Route path="/bar" component={Bar}/>
             <Route path="/line" component={Line}/>
