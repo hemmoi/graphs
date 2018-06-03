@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-    Navbar,
-    Nav,
-    NavItem,
-    NavDropdown,
-    Glyphicon,
-    MenuItem
-} from 'react-bootstrap';
+import {Navbar, Nav, NavItem} from 'react-bootstrap';
 
 const Header = () => {
     return (
