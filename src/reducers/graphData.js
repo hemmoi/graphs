@@ -21,6 +21,7 @@ const initialState = {
 }
 
 const graphDataReducer = (state = initialState, action) => {
+    console.log(action);
     switch (action.type) {
         case ADD_GRAPH_DATA:
             return Object.assign({}, state, {data: action.payload});
