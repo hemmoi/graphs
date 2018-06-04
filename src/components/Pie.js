@@ -1,23 +1,16 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import graphContainer from './GraphContainer';
-import { VictoryPie, VictoryChart, VictoryTheme } from 'victory';
-
-const chartStyle = {
-    parent: {
-        maxWidth: "80%"
-    }
-}
+import {VictoryPie, VictoryTheme} from 'victory';
 
 class Pie extends Component {
     render() {
-        const { data } = this.props;
-        return (
-            <VictoryPie
-                width={800}
-                theme={VictoryTheme.material}
-                data={data} x="quarter" y="earnings"
-                labels={(d) => `Quarter ${d.x}: ${d.y}$`} />
-        )
+        const {pieData} = this.props;
+        return (<VictoryPie
+            theme={VictoryTheme.material}
+            data={pieData}
+            x="quarter"
+            y="earnings"
+            labels={(d) => `Quarter ${d.x}: ${d.y}$`}/>)
     }
 }
 

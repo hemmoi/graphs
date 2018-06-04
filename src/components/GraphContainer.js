@@ -1,18 +1,26 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Panel } from 'react-bootstrap';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Panel} from 'react-bootstrap';
 import {getGraphData} from '../actions/graphData';
 
 export default function (ComposedComponent, reducers) {
     class graphContainer extends Component {
-        componentDidMount() {
-            getGraphData(dispatch);
+        componentWillMount() {
+            this
+                .props
+                .dispatch(getGraphData());
         }
 
         render() {
             return (
-                <Panel id="graph-container" className="container">
-                    <ComposedComponent {...this.props} />
+                <Panel
+                    id="graph-container"
+                    className="container"
+                    style={{
+                    height: "600px",
+                    width: "600px"
+                }}>
+                    <ComposedComponent {...this.props}/>
                 </Panel>
 
             )
@@ -21,15 +29,10 @@ export default function (ComposedComponent, reducers) {
 
     function mapStateToProps(state) {
         return {
-            data: state.graphData.data || []
+            data: state.graphData.data || [],
+            pieData: state.graphData.pieData || []
         }
     }
 
-    const mapDispatchToProps = dispatch => {
-        return {
-            getGraphData
-        }
-      }
-
-    return connect(mapStateToProps, mapDispatchToProps)(graphContainer);
+    return connect(mapStateToProps, null)(graphContainer);
 }

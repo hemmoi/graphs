@@ -17,16 +17,17 @@ const data2012 = [
 ];
 
 const initialState = {
-    data: data2012
+    data: data2012,
+    pieData: data2012
 }
 
 const graphDataReducer = (state = initialState, action) => {
-    console.log(action);
+    console.log(action.payload);
     switch (action.type) {
         case ADD_GRAPH_DATA:
-            return Object.assign({}, state, {data: action.payload});
+            return Object.assign({}, state, {data: action.payload.data});
         default:
-            return initialState
+            return state
     }
 }
 
